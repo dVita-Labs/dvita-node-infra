@@ -1,0 +1,21 @@
+{
+    "name":"NXA Core 1 Wallet",
+    "version":"1.0",
+    "scrypt":{"n":16384,"r":8,"p":8},
+    "accounts":[
+        {
+            "address":"NVGLB1NDt49nChTZmYemYEx1hQrmcviu2k",
+            "label":"NXA Core 1 Account",
+            "isDefault":false,
+            "lock":false,
+            "key":"6PYXTGx15tH2wb2tLijoMDu1Qzb2gD2ciFuehmYnppKBjPyTqWnEiCWeQz",
+            "contract":{
+                "script":"DCECZLX/MI0S2dy8uSl4QnimZvmI2Kk4jmFlPPXCLLnQWGRBVuezJw==",
+                "parameters":[{"name":"signature","type":"Signature"}],
+                "deployed":false
+            },
+            "extra":null
+        }
+    ],
+    "extra":null
+}

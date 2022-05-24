@@ -1,0 +1,122 @@
+##
+## Copyright (c) 2021 - Team11. All rights reserved.
+##
+
+version: '3.7'
+
+services:
+
+  neo-node1:
+    container_name: neo-node1
+    hostname: neo-node1
+    build:
+      dockerfile: Dockerfile
+      target: privatechain
+      context: .
+    image: neo-node/consensus
+    networks:
+      privchain_network:
+        ipv4_address: 10.15.0.11
+    ports:
+      - 21333:21333
+      - 21334:21334
+    volumes:
+      - Data_LevelDB1:/Data_LevelDB
+      - ConsensusState1:/ConsensusState
+      - type: bind
+        source: ./1.config.json
+        target: /neo-node/config.json
+        read_only: true
+    command: tail -f /dev/null
+
+  neo-node2:
+    container_name: neo-node2
+    hostname: neo-node2
+    build:
+      dockerfile: Dockerfile
+      target: privatechain
+      context: .
+    image: neo-node/consensus
+    networks:
+      privchain_network:
+        ipv4_address: 10.15.0.12
+    ports:
+      - 22333:22333
+      - 22334:22334
+    volumes:
+      - Data_LevelDB2:/Data_LevelDB
+      - ConsensusState2:/ConsensusState
+      - type: bind
+        source: ./2.config.json
+        target: /neo-node/config.json
+        read_only: true
+    command: tail -f /dev/null
+    
+  neo-node3:
+    container_name: neo-node3
+    hostname: neo-node3
+    build:
+      dockerfile: Dockerfile
+      target: privatechain
+      context: .
+    image: neo-node/consensus
+    networks:
+      privchain_network:
+        ipv4_address: 10.15.0.13
+    ports:
+      - 23333:23333
+      - 23334:23334
+    volumes:
+      - Data_LevelDB3:/Data_LevelDB
+      - ConsensusState3:/ConsensusState
+      - type: bind
+        source: ./3.config.json
+        target: /neo-node/config.json
+        read_only: true
+    command: tail -f /dev/null
+        
+  neo-node4:
+    container_name: neo-node4
+    hostname: neo-node4
+    build:
+      dockerfile: Dockerfile
+      target: privatechain
+      context: .
+    image: neo-node/consensus
+    networks:
+      privchain_network:
+        ipv4_address: 10.15.0.14
+    ports:
+      - 24333:24333
+      - 24334:24334
+    volumes:
+      - Data_LevelDB4:/Data_LevelDB
+      - ConsensusState4:/ConsensusState
+      - type: bind
+        source: ./4.config.json
+        target: /neo-node/config.json
+        read_only: true
+    command: tail -f /dev/null
+
+networks:
+  privchain_network:
+    external: true
+#networks:
+#  privchain_network:
+#    driver: bridge
+#    ipam:
+#     config:
+#        - subnet: 10.15.0.0/16
+#       - subnet: 127.0.0.0/16
+#        gateway: 127.0.0.1
+
+volumes:
+  Data_LevelDB1:
+  Data_LevelDB2:
+  Data_LevelDB3:
+  Data_LevelDB4:
+  ConsensusState1:
+  ConsensusState2:
+  ConsensusState3:
+  ConsensusState4:
+

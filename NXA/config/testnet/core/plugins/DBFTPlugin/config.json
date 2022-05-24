@@ -1,0 +1,10 @@
+{
+    "PluginConfiguration": {
+      "Network": 199,
+      "RecoveryLogs": "/nxa-node-data/ConsensusState",
+      "IgnoreRecoveryLogs": false,
+      "AutoStart": true,
+      "MaxBlockSize": 262144,
+      "MaxBlockSystemFee": 900000000000
+    }
+}

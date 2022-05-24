@@ -1,0 +1,6 @@
+{
+    "PluginConfiguration": {
+      "Network": 199,
+      "Path": "/nxa-node-data/ApplicationLogs_{0}"
+    }
+}

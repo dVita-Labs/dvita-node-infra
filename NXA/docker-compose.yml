@@ -1,0 +1,29 @@
+##
+## Copyright (c) 2021 - Team11. All rights reserved.
+##
+
+version: '3.7'
+
+services:
+
+  nxa-testnet-node:
+    #image: registry.team11.lv/public/nxa-testnet-node:latest
+    image: nxa-testnet-node:latest
+    container_name: nxa-testnet-node
+    hostname: nxa-testnet-node
+    build:
+      dockerfile: Dockerfile
+      target: production
+      context: .
+    ports:
+      - 20331:20331
+      - 20332:20332
+      - 20333:20333
+      - 20334:20334
+    volumes:
+      - nxa-node-data:/nxa-node-data
+    command: tail -f /dev/null
+
+
+volumes:
+  nxa-node-data:

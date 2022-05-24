@@ -1,0 +1,8 @@
+{
+    "PluginConfiguration": {
+      "Network": 844378958,
+      "Path": "/neo-node-data/Data_MPT_{0}",
+      "FullState": false,
+      "AutoVerify": false
+    }
+}

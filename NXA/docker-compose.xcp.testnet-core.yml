@@ -1,0 +1,493 @@
+##
+## Copyright (c) 2021 - Team11. All rights reserved.
+##
+
+version: '3.7'
+
+services:
+
+#
+# Core nodes
+#
+
+  nxa-testnet-node-core1:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-core1
+    hostname: nxa-testnet-node-core1
+    ports:
+      - 31333:20333
+      - 31334:20334
+    volumes:
+        - nxa-node-data-core1:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/core/core1/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/core1/core.wallet.json
+          target: /nxa-node-data/core.wallet.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+  nxa-testnet-node-core2:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-core2
+    hostname: nxa-testnet-node-core2
+    ports:
+      - 32333:20333
+      - 32334:20334
+    volumes:
+        - nxa-node-data-core2:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/core/core2/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/core2/core.wallet.json
+          target: /nxa-node-data/core.wallet.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+  nxa-testnet-node-core3:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-core3
+    hostname: nxa-testnet-node-core3
+    ports:
+      - 33333:20333
+      - 33334:20334
+    volumes:
+        - nxa-node-data-core3:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/core/core3/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/core3/core.wallet.json
+          target: /nxa-node-data/core.wallet.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+  nxa-testnet-node-core4:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-core4
+    hostname: nxa-testnet-node-core4
+    ports:
+      - 34333:20333
+      - 34334:20334
+    volumes:
+        - nxa-node-data-core4:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/core/core4/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/core4/core.wallet.json
+          target: /nxa-node-data/core.wallet.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+#
+# Seed nodes
+#
+
+  nxa-testnet-node-seed1:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-seed1
+    hostname: nxa-testnet-node-seed1
+    ports:
+      - 21333:20333
+      - 21334:20334
+    volumes:
+        - nxa-node-data-seed1:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/seed/seed1/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+  nxa-testnet-node-seed2:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-seed2
+    hostname: nxa-testnet-node-seed2
+    ports:
+      - 22333:20333
+      - 22334:20334
+    volumes:
+        - nxa-node-data-seed2:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/seed/seed2/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+  nxa-testnet-node-seed3:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-seed3
+    hostname: nxa-testnet-node-seed3
+    ports:
+      - 23333:20333
+      - 23334:20334
+    volumes:
+        - nxa-node-data-seed3:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/seed/seed3/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+  nxa-testnet-node-seed4:
+    image: registry.team11.lv/public/nxa-testnet-node:latest
+    container_name: nxa-testnet-node-seed4
+    hostname: nxa-testnet-node-seed4
+    ports:
+      - 24333:20333
+      - 24334:20334
+    volumes:
+        - nxa-node-data-seed4:/nxa-node-data
+        - type: bind
+          source: ./config/testnet/seed/seed4/config.json
+          target: /neo-node/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/ApplicationLogs/config.json
+          target: /neo-node/Plugins/ApplicationLogs/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/DBFTPlugin/config.json
+          target: /neo-node/Plugins/DBFTPlugin/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/OracleService/config.json
+          target: /neo-node/Plugins/OracleService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcNep17Tracker/config.json
+          target: /neo-node/Plugins/RpcNep17Tracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/core/plugins/TokensTracker/config.json
+          target: /neo-node/Plugins/TokensTracker/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/RpcServer/config.json
+          target: /neo-node/Plugins/RpcServer/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StatesDumper/config.json
+          target: /neo-node/Plugins/StatesDumper/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/StateService/config.json
+          target: /neo-node/Plugins/StateService/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXABlockListener/config.json
+          target: /neo-node/Plugins/NXABlockListener/config.json
+          read_only: true
+        - type: bind
+          source: ./config/testnet/seed/plugins/NXAExtendedRpc/config.json
+          target: /neo-node/Plugins/NXAExtendedRpc/config.json
+          read_only: true
+    command: tail -f /dev/null
+
+#
+# Volumes
+#
+
+volumes:
+
+    nxa-node-data-core1:
+
+    nxa-node-data-core2:
+
+    nxa-node-data-core3:
+
+    nxa-node-data-core4:
+
+    nxa-node-data-seed1:
+
+    nxa-node-data-seed2:
+
+    nxa-node-data-seed3:
+
+    nxa-node-data-seed4:
